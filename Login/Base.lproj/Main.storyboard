@@ -39,7 +39,7 @@
                                 <rect key="frame" x="188" y="433" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="gTy-3x-YEC" kind="show" id="MDW-gS-Iao"/>
+                                    <segue destination="gTy-3x-YEC" kind="show" identifier="loginSegue" id="MDW-gS-Iao"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="MXm-9C-5D4">
@@ -48,10 +48,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AuM-OQ-gjl">
                                         <rect key="frame" x="0.0" y="0.0" width="157" height="30"/>
                                         <state key="normal" title="Forgot your password?"/>
+                                        <connections>
+                                            <action selector="forgotPasswordButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zaz-fP-tem"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tp6-sn-DAb">
                                         <rect key="frame" x="218" y="0.0" width="156" height="30"/>
                                         <state key="normal" title="Forgot you Username?"/>
+                                        <connections>
+                                            <action selector="forgotUsernameButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dBm-HY-aEL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -69,7 +75,13 @@
                             <constraint firstItem="eI6-J3-DdJ" firstAttribute="top" secondItem="8lC-Wh-00l" secondAttribute="bottom" constant="30" id="tbA-Ek-Lbd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="1Xk-7l-Yje"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="1Xk-7l-Yje"/>
+                    <connections>
+                        <outlet property="forgotPasswordButton" destination="AuM-OQ-gjl" id="5cv-7l-lR9"/>
+                        <outlet property="forgotUsernameButton" destination="tp6-sn-DAb" id="LC0-gL-AvR"/>
+                        <outlet property="usernameOutlet" destination="5LU-GJ-yJ4" id="m32-dI-G1u"/>
+                        <segue destination="gTy-3x-YEC" kind="show" identifier="ForgottenUsernameOrPassword" id="SKV-MA-ITd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -85,7 +97,7 @@
                         <viewLayoutGuide key="safeArea" id="cgZ-st-pou"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2bf-gB-xQE"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="2bf-gB-xQE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hLa-h2-sbU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -96,8 +108,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n32-tD-DLw" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UwP-11-Fxb">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="UwP-11-Fxb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -110,6 +122,9 @@
             <point key="canvasLocation" x="168" y="88"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="MDW-gS-Iao"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
